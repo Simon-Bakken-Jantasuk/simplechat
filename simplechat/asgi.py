@@ -9,16 +9,11 @@ from django.urls import re_path, path
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "simplechat.settings")
 django_asgi_app = get_asgi_application()
 
-from chat.consumers import * 
+import chat.routing 
 
 application = ProtocolTypeRouter({
     "http": django_asgi_app,
-
     "websocket": AllowedHostsOriginValidator(
-        AuthMiddlewareStack(
-            URLRouter([
-                path('ws/chat/<int:id>/', ChatConsumer.as_asgi()),
-            ])
-        )
+        AuthMiddlewareStack(URLRouter(chat.routing.websocket_urlpatterns))
     ),
 })
