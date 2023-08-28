@@ -2,6 +2,7 @@
     <h2 class="title">SimpleChat</h2>
     <img src="simplechat.gif">
 </div>
+
 <style>
 .center{
     display: flex;
@@ -36,7 +37,7 @@ Typing Indicator (branch: feat-typing)
 
 #### License 
 
-(MIT)[docs/LICENSE]
+[MIT](LICENSE)
 
 ----------
 
