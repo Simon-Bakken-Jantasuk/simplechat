@@ -14,6 +14,10 @@ It is supposed to be customizable, and battery loaded.
 2. Django 
 3. Plain Javascript
 
+#### Features
+
+Typing Indicator (branch: feat-typing)
+
 #### Goals
 
 - [x] Private chat
