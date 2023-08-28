@@ -80,5 +80,5 @@ inputField.oninput = () => {
   clearTimeout(typingTimer);
   typingTimer = setTimeout(() => {
     stopTyping();
-  }, 5000);
+  }, TYPING_TIMEOUT);
 };
