@@ -13,9 +13,8 @@
    4. [Features](#introduction4)
 
 3. [Documentation](#docs)
-    1. [How do I change the time format for messages?](#datetime)
-4. [Goals](#goals)
-5. [License](#license)
+    1. [DATETIME_FORMAT](#datetime)
+4. [License](#license)
 
 ## Introduction <a name="introduction"></a>
 
@@ -69,56 +68,17 @@ python setup.py sdist
 
 ## Documentation <a name="docs"></a>
 
-### How to change the time format for messages? <a name="datetime"></a>
+There is the `settings.py`, [templates](/chat/templates/chat) and [JS](/chat/static/js) you can customize. It is a matter of overriding the files you want to customize.
+
+### DATETIME_FORMAT <a name="datetime"></a>
 
 Go to settings, change or add the `DATETIME_FORMAT` variable to change the time. More information is here, [DATETIME_FORMAT](https://docs.djangoproject.com/en/4.2/ref/settings/#std-setting-DATETIME_FORMAT) and [DATE](https://docs.djangoproject.com/en/4.2/ref/templates/builtins/#std-templatefilter-date).
 
-### How to typingIndicator or message? <a name="data.js"></a>
-
-Create a [data.js](/chat/static/js/data.js) in your static directory in a folder named chat.
-
-```js
-import { messageSocket, typingSocket } from './websocket.js';
-
-/**
- * Event handler for the typingSocket's 'message' event.
- * Updates the typing indicator based on incoming messages.
- * @param {MessageEvent} e - The WebSocket message event.
- */
-typingSocket.onmessage = (e) => {
-  const data = JSON.parse(e.data);
-  if (data.typing) {
-    typingIndicator.textContent = `${data.sender_username} is typing...`; 
-  } else {
-    typingIndicator.textContent = '';
-  };
-};
-
-/**
- * Event handler for the messageSocket's 'message' event.
- * Appends incoming chat messages to the chat log.
- * @param {MessageEvent} e - The WebSocket message event.
- */
-messageSocket.onmessage = (e) => {
-  const data = JSON.parse(e.data);
-  const chatLog = document.getElementById('chat-log');
-  const messageDiv = document.createElement('div');
-  messageDiv.textContent = `${data.sender_username}: ${data.message} | ${data.datetime_format}`;
-  chatLog.appendChild(messageDiv);
-};
-```
-
-There is two multiple WebSockets– messageSocket which contains the sender username, the message and some information about the time. The typingSocket contains simply the sender and typing which has either a boolean true or false. You can also override templates aswell, the [room.html](/chat/templates/chat/room.html) and so on. For more information: [templates](/chat/templates/chat) and [js](/chat/static/js)
-
-## Goals <a name="goals"></a>
-
-- [ ] Turn simplechat to an API
-- [ ] Online status functionality
-- [ ] Anonymous chatting with users
-- [ ] Notification indicator 
-- [ ] Spam protection
+-----------------------
 
 ## License <a name="license"></a>
 
 [MIT](LICENSE)
+
+-----------------------
 
