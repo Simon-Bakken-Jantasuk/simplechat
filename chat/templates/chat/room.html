@@ -2,6 +2,8 @@
 {% load static %}
 {% block content %}
 <h1>You ({{ sender }}) are chatting with {{ receiver }}</h1> 
+<h1 id="onlineStatus"></h1>
+
 <div id="chat-log">
   {% for message in messages %}
     <div>
