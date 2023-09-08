@@ -30,8 +30,5 @@ pip install django-simplechat
 
 ## Documentation 
 
-There is the `settings.py`, [templates](/chat/templates/chat) and [JS](/chat/static/js) you can customize. It is a matter of overriding the files you want to customize.
-
-### DATETIME_FORMAT 
-
-Go to settings, change or add the `DATETIME_FORMAT` variable to change the time. More information is here, [DATETIME_FORMAT](https://docs.djangoproject.com/en/4.2/ref/settings/#std-setting-DATETIME_FORMAT) and [DATE](https://docs.djangoproject.com/en/4.2/ref/templates/builtins/#std-templatefilter-date).
+Documentation: Check out, [settings](/simplechat/settings/components/django_simplechat.py) and [JS settings](/chat/static/settings.js)
+Override these files if you need changes: [templates](/chat/templates/chat) and [JS](/chat/static/js) 
