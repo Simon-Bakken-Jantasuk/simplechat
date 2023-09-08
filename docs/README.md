@@ -30,5 +30,6 @@ pip install django-simplechat
 
 ## Documentation 
 
-Documentation: Check out, [settings](/simplechat/settings/components/django_simplechat.py) and [JS settings](/chat/static/settings.js)
+Documentation: Check out, [settings](/simplechat/settings/components/django_simplechat.py) and [JS settings](/chat/static/js/settings.js)
+
 Override these files if you need changes: [templates](/chat/templates/chat) and [JS](/chat/static/js) 
